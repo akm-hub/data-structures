@@ -35,6 +35,8 @@
  * By default, if no container class is specified deque is used.
  */
 
+ ///  Forward declaration of class is required for making 
+ ///  operators == and < friends of Stack class
 template < typename T, typename Container >
 class Stack;
 
@@ -58,21 +60,21 @@ class Stack {
     void push(const T& val);
     void pop();
 
-    friend bool operator== <>(const Stack& lhs, const Stack& rhs);
-    friend bool operator< <>(const Stack& lhs, const Stack& rhs);
+    friend bool operator== <> (const Stack& lhs, const Stack& rhs);
+    friend bool operator< <> (const Stack& lhs, const Stack& rhs);
 };
 
 /*
- * @brief    Default constructor
+ * @brief        Default constructor
  */
 template < typename T, typename Container >
 Stack<T, Container>::Stack() {
 }
 
 /*
- * @brief    Test whether stack is empty
- * @param     None
- * @return   true if stack empty
+ * @brief        Test whether stack is empty
+ * @param        None
+ * @return       true if stack empty
  */
 template < typename T, typename Container >
 bool Stack<T, Container>::empty() const {
@@ -81,8 +83,8 @@ bool Stack<T, Container>::empty() const {
 
 /*
  * @brief        Get size of stack, i.e. no. of items 
- * @param         None
- * @return         The number of items in the stack
+ * @param        None
+ * @return       The number of items in the stack
  */
 template < typename T, typename Container >
 typename Stack<T, Container>::size_type Stack<T, Container>::size() const {
@@ -91,9 +93,9 @@ typename Stack<T, Container>::size_type Stack<T, Container>::size() const {
 
 /*
  * @brief        Access the top item in stack 
- * @param         None
- * @return         Reference to the top item in stack
- * @throws      runtime_error - if stack empty
+ * @param        None
+ * @return       Reference to the top item in stack
+ * @throws       runtime_error - if stack empty
  */
 template < typename T, typename Container >
 T& Stack<T, Container>::top() {
@@ -106,8 +108,8 @@ T& Stack<T, Container>::top() {
 
 /*
  * @brief        Add a new item at top of stack 
- * @param         The item
- * @return         Nothing
+ * @param        The item
+ * @return       Nothing
  */
 template < typename T, typename Container >
 void Stack<T, Container>::push(const T& val) {
@@ -116,9 +118,9 @@ void Stack<T, Container>::push(const T& val) {
 
 /*
  * @brief        Delete a new item in stack
- * @param         None
- * @return         Nothing
- * @throws      runtime_error - if stack empty
+ * @param        None
+ * @return       Nothing
+ * @throws       runtime_error - if stack empty
  */
 template < typename T, typename Container >
 void Stack<T, Container>::pop() {
@@ -132,8 +134,8 @@ void Stack<T, Container>::pop() {
 
 /*
  * @brief        Performs the equality test on operands
- * @param         Two stack objects to be compared
- * @return         true if equal
+ * @param        Two stack objects to be compared
+ * @return       true if equal
  */
 template < typename T, typename Container >
 bool operator==(const Stack<T, Container>& lhs, const Stack<T, Container>& rhs) {
@@ -142,8 +144,8 @@ bool operator==(const Stack<T, Container>& lhs, const Stack<T, Container>& rhs) 
 
 /*
  * @brief        Performs the inequality test on operands
- * @param         Two stack objects to be compared
- * @return         true if unequal
+ * @param        Two stack objects to be compared
+ * @return       true if unequal
  */
 template < typename T, typename Container >
 bool operator!=(const Stack<T, Container>& lhs, const Stack<T, Container>& rhs) {
@@ -152,8 +154,8 @@ bool operator!=(const Stack<T, Container>& lhs, const Stack<T, Container>& rhs) 
 
 /*
  * @brief        Performs the gretaer than or equal to test on operands
- * @param         Two stack objects to be compared
- * @return         true if left is less than right operand
+ * @param        Two stack objects to be compared
+ * @return       true if left is less than right operand
  */
 template < typename T, typename Container >
 bool operator<(const Stack<T, Container>& lhs, const Stack<T, Container>& rhs) {
@@ -162,8 +164,8 @@ bool operator<(const Stack<T, Container>& lhs, const Stack<T, Container>& rhs) {
 
 /*
  * @brief        Performs the less than or equal to test on operands
- * @param         Two stack objects to be compared
- * @return         true if left is less than or equal to right operand
+ * @param        Two stack objects to be compared
+ * @return       true if left is less than or equal to right operand
  */
 template < typename T, typename Container >
 bool operator<=(const Stack<T, Container>& lhs, const Stack<T, Container>& rhs) {
@@ -173,8 +175,8 @@ bool operator<=(const Stack<T, Container>& lhs, const Stack<T, Container>& rhs) 
 
 /*
  * @brief        Performs the greater than or equal to test on operands
- * @param         Two stack objects to be compared
- * @return         true if left is greater than or equal to right operand
+ * @param        Two stack objects to be compared
+ * @return       true if left is greater than or equal to right operand
  */
 template < typename T, typename Container >
 bool operator>=(const Stack<T, Container>& lhs, const Stack<T, Container>& rhs) {
@@ -183,9 +185,9 @@ bool operator>=(const Stack<T, Container>& lhs, const Stack<T, Container>& rhs) 
 
 
 /*
- * @brief        Performs the gretaer than or equal to test on operands
- * @param         Two stack objects to be compared
- * @return         true if left is greater than right operand
+ * @brief        Performs the greater than test on operands
+ * @param        Two stack objects to be compared
+ * @return       true if left is greater than right operand
  */
 template < typename T, typename Container >
 bool operator>(const Stack<T, Container>& lhs, const Stack<T, Container>& rhs) {
