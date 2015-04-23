@@ -1,2 +1,4 @@
 # data-structures
-data structures examples
+This repository contains data structures examples
+
+
